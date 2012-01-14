@@ -327,7 +327,6 @@ SynthDef(\eko4444, { |out=0, gate=1, dur=1|
 	~a4444[\d].keysValuesDo{|key, item|
 		~a4444[\handleregen].value(item);
 	};
-	
 	// start the ebbs ebbing
 	~a4444[\ebbsynths] = ~a4444[\ebbs].collect{ |elem, key|
 		if(trackdur.isNil){
@@ -344,7 +343,9 @@ SynthDef(\eko4444, { |out=0, gate=1, dur=1|
 	~a4444[\buildsynth] = Synth(\buildupper4444, [\arousalbus, ~a4444[\ebbs][\arousal], \buildbus, ~a4444[\buildbus]], 
 				~a4444[\buildgroup], \addToTail);
 
-	record = record.binaryValue; //asInt; "binaryValue" more backwards-compatible
+	if(record.isNumber.not){
+		record = if(record){1}{0}; //asInt; "binaryValue" more backwards-compatible
+	};
 	if(record > 0){
 		"Recording to folder '%'".format(thisProcess.platform.recordingsDir).postln;
 		// recording the main output mix:
