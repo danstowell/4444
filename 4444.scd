@@ -344,7 +344,7 @@ SynthDef(\eko4444, { |out=0, gate=1, dur=1|
 	~a4444[\buildsynth] = Synth(\buildupper4444, [\arousalbus, ~a4444[\ebbs][\arousal], \buildbus, ~a4444[\buildbus]], 
 				~a4444[\buildgroup], \addToTail);
 
-	record = record.asInt;
+	record = record.binaryValue; //asInt; "binaryValue" more backwards-compatible
 	if(record > 0){
 		"Recording to folder '%'".format(thisProcess.platform.recordingsDir).postln;
 		// recording the main output mix:
