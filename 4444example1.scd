@@ -10,7 +10,9 @@
 
 // this simple example doesn't make use of the 'ebbs' to change the atmosphere/energy of the track.
 
-Document.dir = "~/svn/stored_docs/scworkq/4444/".standardizePath; // or wherever you are
+// on mac you don't need this line; on linux I need to explicitly say what folder we're in
+Document.dir = "~/svn/stored_docs/scworkq/4444/".standardizePath;
+// Now RUN THESE lines to prepare:
 (Document.dir +/+ "4444.scd").load;
 s.boot;
 ~init4444.value();

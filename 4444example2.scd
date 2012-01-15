@@ -1,7 +1,9 @@
 
 // Like example1, but with some use of the ebbs (arousal, valence, density) to control the mood of the track.
 
-Document.dir = "~/svn/stored_docs/scworkq/4444/".standardizePath; // or wherever you are
+// on mac you don't need this line; on linux I need to explicitly say what folder we're in
+Document.dir = "~/svn/stored_docs/scworkq/4444/".standardizePath;
+// Now RUN THESE lines to prepare:
 (Document.dir +/+ "4444.scd").load;
 s.boot;
 ~init4444.value();
